@@ -1,0 +1,229 @@
+{% load static %}
+{% load static tailwind_tags %}
+
+<html lang="en">
+    <head>
+
+        <title> WEBSITE LETS GO </title>
+
+           {% tailwind_css %}
+
+    </head>
+
+    <div class="grid grid-flow-row place-items-center">
+        <div class="py-20 text-center font-bold font-mono:Monaco text-5xl text-wrap w-3/5"> Welcome to Your Goodreads Wrapped </div>
+        <div class="text-center font-bold font-mono:Monaco text-2xl">Check out your stats below</div>
+        <div class="text-5xl p-10">⥥</div>
+    </div>
+    <div class="bg-blue-400 py-20">
+        <!-- your top genres heading -->
+        <div class="pl-10 text-start font-bold font-mono:Monaco text-4xl">Your Top Genres
+            <div class="pl-5 text-6xl -m-4">————</div>
+        </div>
+        <!-- top generes listing -->  
+        <div class="table-auto border-spacing-10 px-10 py-10">
+            
+            <div class="rounded pb-5">
+                <div class="rounded p-5 font-bold bg-blue-500 text-xl">1/ Fiction</div>
+            </div>
+            <div class="rounded pb-5">
+                <div class="rounded p-5 font-bold bg-blue-500 text-xl">2/ Non-Fiction</div>
+            </div>
+            <div class="rounded pb-5">
+                <div class="rounded p-5 font-bold bg-blue-500 text-xl">3/ Crime</div>
+            </div>
+            <div class="rounded pb-5">
+                <div class="rounded p-5 font-bold bg-blue-500 text-xl">4/ Romance</div>
+            </div>
+            <div class="rounded pb-5">
+                <div class="rounded p-5 font-bold bg-blue-500 text-xl">5/ Fantasy</div>
+            </div>
+
+        </div>
+    </div>
+
+        <!-- favorite authors -->
+        <div class="border-spacing-10 px-10 py-20 bg-black">
+            <div class="text-white text-start font-bold font-mono:Monaco text-4xl">Your Favorite Authors
+                <div class="pl-5 text-6xl -m-4">——————</div>
+            </div>
+
+            <div class="grid grid-flow-row grid-cols-2 p-5">
+                <div>
+                    <div class="flex py-5"> <!-- author 1 -->
+                        <img src="{% static 'example_author.jpg' %}" class="w-12 rounded-full">
+                        <div class="text-white text-lg pt-5 px-5">Rick Riordan: 5 Books</div>
+                    </div>
+                    <div class="flex"> <!-- author 2 -->
+                        <img src="{% static 'example_author.jpg' %}" class="w-12 rounded-full">
+                        <div class="text-white text-lg pt-5 px-5">Jane Austen: 4 Books</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex py-5"> <!-- author 3 -->
+                        <img src="{% static 'example_author.jpg' %}" class="w-12 rounded-full">
+                        <div class="text-white text-lg pt-5 px-5">Donna Tart: 3 Books</div>
+                    </div>
+                    <div class="flex"> <!-- author 4 -->
+                        <img src="{% static 'example_author.jpg' %}" class="w-12 rounded-full">
+                        <div class="text-white text-lg pt-5 px-5">Charles Dickens: 2 Books</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    <!-- Books Read This Year -->
+    <div class="border-spacing-10 px-10 py-20 bg-purple-300">
+        <div class="text-start font-bold font-mono text-4xl">Books Read This Year</div>
+        <div class="pl-5 text-6xl -m-4">——————</div>
+        
+        <div class="grid grid-cols-4 gap-20 mt-10">
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    1/ Harry Potter
+                </div>
+            </div>
+    
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    2/ The Lightning Thief
+                </div>
+            </div>
+
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    3/ The Great Gatsby
+                </div>
+            </div>
+    
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    4/ Little Women
+                </div>
+            </div>
+
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    5/ Good Omens
+                </div>
+            </div>
+
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    6/ The Yellow Wallpaper
+                </div>
+            </div>
+
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    7/ The Book Thief
+                </div>
+            </div>
+
+            <div class="relative rounded-lg overflow-hidden shadow-xl">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    8/ The Secret History
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="grid grid-cols-2 border-spacing-10 px-10 py-20 bg-green-200">
+    
+            <img src="{% static 'challenge_photo.png' %}" class="pl-10">
+            <div>bar here</div>
+        </div>
+
+        <div class="bg-cyan-600 py-20">
+            <div class="pl-10 text-start font-bold font-mono:Monaco text-4xl text-white">By The Decades
+                <div class="pl-5 text-6xl -m-4">————</div>
+            </div>
+            <!-- pi chart -->
+            <div class="grid grid-cols-2">
+                <pre class="text-white font-mono py-5 text-wrap pl-10">You're a literary time traveler! You've been reading books written in a whopping 4 decades.
+
+Your favorite decade of books is the 1970s.</pre>
+                <div class="max-w-sm w-full">
+                    <div>
+                        <canvas id="myChart" class="w-full"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="bg-blue-800">
+            <div class="">Recommendations</div>
+        </div>
+
+        <div class="bg-pink-200">
+            <div class="">Share with Your Friends</div>
+        </div>
+
+        <!-- Pages read, minutes read, obscure books -->
+
+    
+
+
+</html>
+
+<!-- set up for pi chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['1960s', '1970s', '2010s', '2020s'],
+            datasets: [{
+                label: 'Decades',
+                data: [12, 15, 3, 5],
+                backgroundColor: [
+                    'rgb(265, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(146, 43, 181)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: 'white', 
+                        font: {
+                            size: 14 
+                        }
+                    }
+                },  
+            }
+        }  
+    });
+</script>
