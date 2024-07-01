@@ -19,11 +19,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from .views import GoodreadsLoginView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('crm.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
-] 
+    path('goodreads/login/', GoodreadsLoginView.as_view(), name='goodreads_login'),
+ #   path('myapp/', include('myapp.urls')),
+]
+
 
 urlpatterns += static(settings.MEDIA_URL, document_rool=settings.MEDIA_ROOT)
 

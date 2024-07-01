@@ -11,10 +11,27 @@
     </head>
 
     <div class="grid grid-flow-row place-items-center">
-        <div class="py-20 text-center font-bold font-mono:Monaco text-5xl text-wrap w-3/5"> Welcome to Your Goodreads Wrapped </div>
+        <div class="pt-20 text-center font-bold font-mono:Monaco text-5xl text-wrap"> Welcome to Your</div>
+        <div class="pb-20 text-center font-bold font-mono:Monaco text-5xl text-wrap"> Goodreads Wrapped </div>
         <div class="text-center font-bold font-mono:Monaco text-2xl">Check out your stats below</div>
         <div class="text-5xl p-10">⥥</div>
     </div>
+
+    
+      <!-- Minutes Read-->
+      <div class="bg-gradient-to-br from-purple-500 to-blue-500 text-white py-24">
+        <div class="max-w-md mx-auto p-6 bg-white bg-opacity-80 rounded-lg shadow-lg text-center">
+            <div class="text-3xl text-gray-900">You've read</div>
+            <div id="counter" class="text-7xl font-bold text-gray-900 opacity-0 animate-roll-up">0</div>
+            <div class="text-2xl mb-6 text-gray-900">pages this year</div>
+            <div class="text-lg mb-6 text-gray-900">Thats Approximately 200 Hours!</div>
+        </div>
+
+    </div>
+    
+    <!-- make a "counting up" effect when the page opens -->
+    
+
     <div class="bg-blue-400 py-20">
         <!-- your top genres heading -->
         <div class="pl-10 text-start font-bold font-mono:Monaco text-4xl">Your Top Genres
@@ -42,6 +59,26 @@
         </div>
     </div>
 
+     <!-- Yearly challenge progress -->
+     <div class="grid grid-cols-2 py-20 bg-purple-300">
+        <img src="{% static 'challenge_photo.png' %}" class="md:pl-24 pl-12 xl:pl-32">
+            <div class="w-full px-10 md:px-5">
+                <div class="text-8xl text-left -ml-6 pb-2 text-white">12</div>
+                <div class="text-2xl text-white">books completed</div>
+                <div class="text-lg pb-2 text-white">2 books behind schedule</div>
+            <!-- progress bar -->
+                <div class="flex">
+                    <div class="h-8 shadow w-full rounded bg-gray-100">
+                        <div id="progressBar" style="width: 90%;" class="h-full bg-pink-900"></div>
+                    </div>
+                    <div class="px-2 text-md text-white">12/30</div>
+                    <div class="text-md text-white" id="progressPercent"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
         <!-- favorite authors -->
         <div class="border-spacing-10 px-10 py-20 bg-black">
             <div class="text-white text-start font-bold font-mono:Monaco text-4xl">Your Favorite Authors
@@ -74,7 +111,7 @@
         </div>
 
     <!-- Books Read This Year -->
-    <div class="border-spacing-10 px-10 py-20 bg-purple-300">
+    <div class="border-spacing-10 px-10 py-20 bg-green-200">
         <div class="text-start font-bold font-mono text-4xl">Books Read This Year</div>
         <div class="pl-5 text-6xl -m-4">——————</div>
         
@@ -153,19 +190,14 @@
         </div>
     </div>
 
-        <div class="grid grid-cols-2 border-spacing-10 px-10 py-20 bg-green-200">
-    
-            <img src="{% static 'challenge_photo.png' %}" class="pl-10">
-            <div>bar here</div>
-        </div>
-
+   
         <div class="bg-cyan-600 py-20">
             <div class="pl-10 text-start font-bold font-mono:Monaco text-4xl text-white">By The Decades
                 <div class="pl-5 text-6xl -m-4">————</div>
             </div>
             <!-- pi chart -->
             <div class="grid grid-cols-2">
-                <pre class="text-white font-mono py-5 text-wrap pl-10">You're a literary time traveler! You've been reading books written in a whopping 4 decades.
+                <pre class="text-white font-mono:monaco py-5 text-wrap pl-10">You're a literary time traveler! You've been reading books written in a whopping 4 decades.
 
 Your favorite decade of books is the 1970s.</pre>
                 <div class="max-w-sm w-full">
@@ -177,15 +209,53 @@ Your favorite decade of books is the 1970s.</pre>
             
         </div>
 
-        <div class="bg-blue-800">
-            <div class="">Recommendations</div>
-        </div>
+         <!-- Recommendations -->
+    <div class="border-spacing-10 px-10 py-20 bg-pink-200">
+        <div class="text-start font-bold font-mono text-4xl">Recommendations</div>
+        <div class="pl-5 text-6xl -m-4">——————</div>
+        
+        <div class="grid grid-cols-2 gap-10 mt-10">
+            <div class="relative rounded-lg overflow-hidden md:shadow-xl md:w-48 w-32">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover ">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute md:bottom-0 bottom-2 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    1/ Harry Potter
+                </div>
+            </div>
 
-        <div class="bg-pink-200">
-            <div class="">Share with Your Friends</div>
-        </div>
+            <div class="xl:-ml-96 -ml-48 md:text-lg text-sm pl-10 md:pl-0">The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted "gin was the national drink and sex the national obsession," it is an exquisitely crafted tale of America in the 1920s.
 
-        <!-- Pages read, minutes read, obscure books -->
+            The Great Gatsby is one of the great classics of twentieth-century literature.</div>
+            <div class="relative rounded-lg overflow-hidden md:shadow-xl md:w-48 w-32">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover ">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute md:bottom-0 bottom-2 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    1/ Harry Potter
+                </div>
+            </div>
+
+            <div class="xl:-ml-96 -ml-48 md:text-lg text-sm pl-10 md:pl-0">The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted "gin was the national drink and sex the national obsession," it is an exquisitely crafted tale of America in the 1920s.
+
+            The Great Gatsby is one of the great classics of twentieth-century literature.</div>
+            <div class="relative rounded-lg overflow-hidden md:shadow-xl md:w-48 w-32">
+                <img src="{% static 'example_cover.jpg' %}" class="object-cover ">
+                <div class="absolute inset-0 flex items-center justify-center">
+                </div>
+                <div class="absolute md:bottom-0 bottom-2 left-0 right-0 bg-black bg-opacity-50 p-3 font-mono text-white">
+                    1/ Harry Potter
+                </div>
+            </div>
+
+            <div class="xl:-ml-96 -ml-48 md:text-lg text-sm pl-10 md:pl-0">The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted "gin was the national drink and sex the national obsession," it is an exquisitely crafted tale of America in the 1920s.
+
+            The Great Gatsby is one of the great classics of twentieth-century literature.</div>
+            
+        </div>
+    </div>
+       
+        <!-- Pages read, minutes read, obscure books, average rating -->
 
     
 
@@ -195,35 +265,74 @@ Your favorite decade of books is the 1970s.</pre>
 <!-- set up for pi chart -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 <script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['1960s', '1970s', '2010s', '2020s'],
-            datasets: [{
-                label: 'Decades',
-                data: [12, 15, 3, 5],
-                backgroundColor: [
-                    'rgb(265, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)',
-                    'rgb(146, 43, 181)'
-                ],
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    position: 'top',
-                    labels: {
-                        color: 'white', 
-                        font: {
-                            size: 14 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Chart.js Pie Chart
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['1960s', '1970s', '2010s', '2020s'],
+                datasets: [{
+                    label: 'Decades',
+                    data: [12, 15, 3, 5],
+                    backgroundColor: [
+                        'rgb(265, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)',
+                        'rgb(146, 43, 181)'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'white', 
+                            font: {
+                                size: 14 
+                            }
                         }
                     }
-                },  
+                }
             }
-        }  
+        });
+
+        // Progress Bar
+        const percent = 70; // Replace with actual percentage
+        const progressBar = document.getElementById('progressBar');
+        progressBar.style.width = `${percent}%`;
+
+        // Update progress text
+        const progressPercent = document.getElementById('progressPercent');
+        progressPercent.textContent = `(${percent}%)`;
+
+        // Counter Animation
+        const counterElement = document.getElementById('counter');
+        const targetNumber = 18000; // Set your target number here
+        const duration = 4000; // Duration in milliseconds
+        const steps = 100; // Number of steps
+
+        const stepSize = targetNumber / steps;
+        let currentNumber = 0;
+
+        const interval = duration / steps;
+
+        const counterInterval = setInterval(() => {
+            currentNumber += stepSize;
+            counterElement.textContent = Math.floor(currentNumber);
+
+            if (currentNumber >= targetNumber) {
+                clearInterval(counterInterval);
+                counterElement.textContent = targetNumber;
+            }
+        }, interval);
+
+        // Trigger opacity transition
+        setTimeout(() => {
+            counterElement.classList.remove('opacity-0');
+            counterElement.classList.add('opacity-100');
+        }, 100);
     });
 </script>

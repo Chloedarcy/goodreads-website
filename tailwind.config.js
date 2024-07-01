@@ -3,7 +3,8 @@ module.exports = {
       './templates/**/*.html'
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [
     require('flowbite/plugin')({
