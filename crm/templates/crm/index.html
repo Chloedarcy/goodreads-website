@@ -115,7 +115,16 @@
     <div class="border-spacing-10 px-10 py-20 bg-green-200">
         <div class="text-start font-bold font-mono text-4xl">Books Read This Year</div>
         <div class="pl-5 text-6xl -m-4">——————</div>
-        
+        <!--Test-->
+        <h1>Books</h1>
+        <ul>
+            {% for book in books %}
+            <li>{{ book.title }} by {{ book.author }}</li>
+        {% empty %}
+            <li>No books found.</li>
+        {% endfor %}
+        </ul>
+
         <div class="grid grid-cols-4 gap-20 mt-10">
             <div class="relative rounded-lg overflow-hidden shadow-xl">
                 <img src="{% static 'example_cover.jpg' %}" class="object-cover w-full h-full">
