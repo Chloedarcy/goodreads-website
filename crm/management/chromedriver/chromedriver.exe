@@ -1,0 +1,5 @@
+import os
+from pathlib import Path
+
+driver_path = Path(__file__).resolve().parent / 'chromedriver' / 'chromedriver.exe'
+chrome_service = Service(driver_path)

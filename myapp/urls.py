@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from crm import views
+
 from .views import GoodreadsLoginView
 
 urlpatterns = [
@@ -26,7 +28,7 @@ urlpatterns = [
     path('', include('crm.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
     path('goodreads/login/', GoodreadsLoginView.as_view(), name='goodreads_login'),
- #   path('myapp/', include('myapp.urls')),
+  
 ]
 
 
