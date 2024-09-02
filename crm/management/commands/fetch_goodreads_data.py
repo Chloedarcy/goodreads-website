@@ -38,14 +38,14 @@ class Command(BaseCommand):
 
             chrome_options = Options()
            
-            #chrome_options.add_argument("--headless")  # Run in headless mode
+           # chrome_options.add_argument("--headless")  # Run in headless mode
             chrome_options.add_argument("--no-sandbox")
             chrome_options.add_argument("--disable-dev-shm-usage")
 
             driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
             driver.get('https://www.goodreads.com/ap/signin?language=en_US&openid.assoc_handle=amzn_goodreads_web_na&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.goodreads.com%2Fap-handler%2Fsign-in&siteState=eyJyZXR1cm5fdXJsIjoiaHR0cHM6Ly93d3cuZ29vZHJlYWRzLmNvbS8ifQ%3D%3D')
-            time.sleep(3)  # Wait for the page to load
+            time.sleep(1.5)  # Wait for the page to load
 
             self.stdout.write(self.style.SUCCESS("Open"))
                               
@@ -78,16 +78,28 @@ class Command(BaseCommand):
 
 
     #find book info
+            from django.db.utils import IntegrityError
+
+            # find book info
             book_elements = driver.find_elements(By.CSS_SELECTOR, 'li.bookCoverContainer')
             for book_element in book_elements:
                 img_element = book_element.find_element(By.CSS_SELECTOR, 'a.bookCoverTarget img.bookCover')
                 alt_text = img_element.get_attribute('alt')
                 title, author = alt_text.split(' by ')
 
-                book = Book(title=title, author=author)
-                book.save()
+                # Check if the book already exists
+                if not Book.objects.filter(title=title, author=author).exists():
+                    try:
+                        book = Book(title=title, author=author)
+                        book.save()
+                        self.stdout.write(self.style.SUCCESS(f'Book "{title}" by {author} saved.'))
+                    except IntegrityError:
+                        self.stdout.write(self.style.WARNING(f'Book "{title}" by {author} already exists.'))
+                else:
+                    self.stdout.write(self.style.WARNING(f'Book "{title}" by {author} already exists.'))
                 
-                self.stdout.write(self.style.SUCCESS(f'Book "{title}" by {author} saved.'))
+
+        
 
             
             time.sleep(2)

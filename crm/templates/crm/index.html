@@ -11,7 +11,21 @@
     </head>
 
     <div class="grid grid-flow-row place-items-center">
-        <div>{{book_titles}}</div>
+        <div>
+            {% if books %}
+  <ul>
+    {% for book in books %}
+      <li>{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No books found.</p>
+{% endif %}
+
+            </ul>
+        
+
+        </div>
         <div class="pt-20 text-center font-bold font-mono:Monaco text-5xl text-wrap"> Welcome to Your</div>
         <div class="pb-20 text-center font-bold font-mono:Monaco text-5xl text-wrap"> Goodreads Wrapped </div>
         <div class="text-center font-bold font-mono:Monaco text-2xl">Check out your stats below</div>
