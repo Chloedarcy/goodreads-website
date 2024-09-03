@@ -75,10 +75,11 @@ class Command(BaseCommand):
             view_books_link.click()
 
             time.sleep(1)
+            
+            # Delete all books before fetching new ones
+            Book.objects.all().delete()
+            time.sleep(0.5)
 
-
-    #find book info
-            from django.db.utils import IntegrityError
 
             # find book info
             book_elements = driver.find_elements(By.CSS_SELECTOR, 'li.bookCoverContainer')
@@ -87,22 +88,12 @@ class Command(BaseCommand):
                 alt_text = img_element.get_attribute('alt')
                 title, author = alt_text.split(' by ')
 
-                # Check if the book already exists
-                if not Book.objects.filter(title=title, author=author).exists():
-                    try:
-                        book = Book(title=title, author=author)
-                        book.save()
-                        self.stdout.write(self.style.SUCCESS(f'Book "{title}" by {author} saved.'))
-                    except IntegrityError:
-                        self.stdout.write(self.style.WARNING(f'Book "{title}" by {author} already exists.'))
-                else:
-                    self.stdout.write(self.style.WARNING(f'Book "{title}" by {author} already exists.'))
-                
+                book = Book(title=title, author=author)
+                book.save()
+                self.stdout.write(self.style.SUCCESS(f'Book "{title}" by {author} saved.'))
+                   
 
-        
-
-            
-            time.sleep(2)
+            time.sleep(1)
 
             # Optionally, save HTML content of the page
            ## with open('goodreads_books_read.html', 'w', encoding='utf-8') as file:
